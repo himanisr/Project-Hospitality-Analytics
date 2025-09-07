@@ -1,0 +1,1225 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0514.2217                               -->
+<workbook original-version='18.1' source-build='2025.2.0 (20252.25.0514.2217)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <_.fcp.ObjectModelSharedDimensions.true...ObjectModelSharedDimensions />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='fact_aggregated_bookings.csv+ (Multiple Connections)' inline='true' name='federated.0errgyb0c36mrd19j8mk71msxkvx' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='dim_date' name='textscan.1l19eue0bsevv00zj63840zekhsk'>
+            <connection class='textscan' directory='D:/GitRepository/Project-Hospitality-Dashboard/Project-3 Dataset' filename='dim_date.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='dim_rooms' name='textscan.1lpvufg18332uh1bgoja00b1o6k6'>
+            <connection class='textscan' directory='D:/GitRepository/Project-Hospitality-Dashboard/Project-3 Dataset' filename='dim_rooms.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='dim_hotels' name='textscan.1wde06k08cq4n013jm1x90mp3lsy'>
+            <connection class='textscan' directory='D:/GitRepository/Project-Hospitality-Dashboard/Project-3 Dataset' filename='dim_hotels.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='fact_aggregated_bookings' name='textscan.0e3574b1afekd91f5m93103qns6e'>
+            <connection class='textscan' directory='D:/GitRepository/Project-Hospitality-Dashboard/Project-3 Dataset' filename='fact_aggregated_bookings.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='fact_bookings' name='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli'>
+            <connection class='textscan' directory='D:/GitRepository/Project-Hospitality-Dashboard/Project-3 Dataset' filename='fact_bookings.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='fact_aggregated_bookings.csv' table='[fact_aggregated_bookings#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='integer' name='property_id' ordinal='0' />
+              <column datatype='date' name='check_in_date' ordinal='1' />
+              <column datatype='string' name='room_category' ordinal='2' />
+              <column datatype='integer' name='successful_bookings' ordinal='3' />
+              <column datatype='integer' name='capacity' ordinal='4' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_date.csv' table='[dim_date#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='date' name='date' ordinal='0' />
+              <column datatype='string' name='mmm yy' ordinal='1' />
+              <column datatype='string' name='week no' ordinal='2' />
+              <column datatype='string' name='day_type' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_hotels.csv' table='[dim_hotels#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='integer' name='property_id' ordinal='0' />
+              <column datatype='string' name='property_name' ordinal='1' />
+              <column datatype='string' name='category' ordinal='2' />
+              <column datatype='string' name='city' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_rooms.csv' table='[dim_rooms#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='room_id' ordinal='0' />
+              <column datatype='string' name='room_class' ordinal='1' />
+            </columns>
+          </relation>
+          <_.fcp.ObjectModelSharedDimensions.true...relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='fact_bookings.csv' table='[fact_bookings#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='string' name='booking_id' ordinal='0' />
+              <column datatype='integer' name='property_id' ordinal='1' />
+              <column datatype='date' name='booking_date' ordinal='2' />
+              <column datatype='date' name='check_in_date' ordinal='3' />
+              <column datatype='date' name='checkout_date' ordinal='4' />
+              <column datatype='integer' name='no_guests' ordinal='5' />
+              <column datatype='string' name='room_category' ordinal='6' />
+              <column datatype='string' name='booking_platform' ordinal='7' />
+              <column datatype='real' name='ratings_given' ordinal='8' />
+              <column datatype='string' name='booking_status' ordinal='9' />
+              <column datatype='integer' name='revenue_generated' ordinal='10' />
+              <column datatype='integer' name='revenue_realized' ordinal='11' />
+            </columns>
+          </_.fcp.ObjectModelSharedDimensions.true...relation>
+        </relation>
+        <cols>
+          <map key='[booking_date]' value='[fact_bookings.csv].[booking_date]' />
+          <map key='[booking_id]' value='[fact_bookings.csv].[booking_id]' />
+          <map key='[booking_platform]' value='[fact_bookings.csv].[booking_platform]' />
+          <map key='[booking_status]' value='[fact_bookings.csv].[booking_status]' />
+          <map key='[capacity]' value='[fact_aggregated_bookings.csv].[capacity]' />
+          <map key='[category]' value='[dim_hotels.csv].[category]' />
+          <map key='[check_in_date (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv].[check_in_date]' />
+          <map key='[check_in_date]' value='[fact_bookings.csv].[check_in_date]' />
+          <map key='[checkout_date]' value='[fact_bookings.csv].[checkout_date]' />
+          <map key='[city]' value='[dim_hotels.csv].[city]' />
+          <map key='[date]' value='[dim_date.csv].[date]' />
+          <map key='[day_type]' value='[dim_date.csv].[day_type]' />
+          <map key='[mmm yy]' value='[dim_date.csv].[mmm yy]' />
+          <map key='[no_guests]' value='[fact_bookings.csv].[no_guests]' />
+          <map key='[property_id (dim_hotels.csv)]' value='[dim_hotels.csv].[property_id]' />
+          <map key='[property_id (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv].[property_id]' />
+          <map key='[property_id]' value='[fact_bookings.csv].[property_id]' />
+          <map key='[property_name]' value='[dim_hotels.csv].[property_name]' />
+          <map key='[ratings_given]' value='[fact_bookings.csv].[ratings_given]' />
+          <map key='[revenue_generated]' value='[fact_bookings.csv].[revenue_generated]' />
+          <map key='[revenue_realized]' value='[fact_bookings.csv].[revenue_realized]' />
+          <map key='[room_category (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv].[room_category]' />
+          <map key='[room_category]' value='[fact_bookings.csv].[room_category]' />
+          <map key='[room_class]' value='[dim_rooms.csv].[room_class]' />
+          <map key='[room_id]' value='[dim_rooms.csv].[room_id]' />
+          <map key='[successful_bookings]' value='[fact_aggregated_bookings.csv].[successful_bookings]' />
+          <map key='[week no]' value='[dim_date.csv].[week no]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_date.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_hotels.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_rooms.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[property_id (fact_aggregated_bookings.csv)]</local-name>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>check_in_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[check_in_date (fact_aggregated_bookings.csv)]</local-name>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias>check_in_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[room_category (fact_aggregated_bookings.csv)]</local-name>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias>room_category</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>successful_bookings</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[successful_bookings]</local-name>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias>successful_bookings</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>capacity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[capacity]</local-name>
+            <parent-name>[fact_aggregated_bookings.csv]</parent-name>
+            <remote-alias>capacity</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[dim_date.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mmm yy</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[mmm yy]</local-name>
+            <parent-name>[dim_date.csv]</parent-name>
+            <remote-alias>mmm yy</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>week no</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[week no]</local-name>
+            <parent-name>[dim_date.csv]</parent-name>
+            <remote-alias>week no</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>day_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[day_type]</local-name>
+            <parent-name>[dim_date.csv]</parent-name>
+            <remote-alias>day_type</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[property_id (dim_hotels.csv)]</local-name>
+            <parent-name>[dim_hotels.csv]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[property_name]</local-name>
+            <parent-name>[dim_hotels.csv]</parent-name>
+            <remote-alias>property_name</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[dim_hotels.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[dim_hotels.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[room_id]</local-name>
+            <parent-name>[dim_rooms.csv]</parent-name>
+            <remote-alias>room_id</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_class</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[room_class]</local-name>
+            <parent-name>[dim_rooms.csv]</parent-name>
+            <remote-alias>room_class</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</object-id>
+          </metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>booking_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[booking_id]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>booking_id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[property_id]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>booking_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[booking_date]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>booking_date</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>check_in_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[check_in_date]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>check_in_date</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>checkout_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[checkout_date]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>checkout_date</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>no_guests</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[no_guests]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>no_guests</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>room_category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[room_category]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>room_category</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>booking_platform</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[booking_platform]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>booking_platform</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>ratings_given</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ratings_given]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>ratings_given</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>booking_status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[booking_status]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>booking_status</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>revenue_generated</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[revenue_generated]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>revenue_generated</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+            <remote-name>revenue_realized</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[revenue_realized]</local-name>
+            <parent-name>[fact_bookings.csv]</parent-name>
+            <remote-alias>revenue_realized</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+          </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='dim_date.csv' datatype='table' name='[__tableau_internal_object_id__].[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]' role='measure' type='quantitative' />
+      <column caption='dim_hotels.csv' datatype='table' name='[__tableau_internal_object_id__].[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]' role='measure' type='quantitative' />
+      <column caption='dim_rooms.csv' datatype='table' name='[__tableau_internal_object_id__].[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]' role='measure' type='quantitative' />
+      <column caption='fact_aggregated_bookings.csv' datatype='table' name='[__tableau_internal_object_id__].[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]' role='measure' type='quantitative' />
+      <column caption='fact_bookings.csv' datatype='table' name='[__tableau_internal_object_id__].[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]' role='measure' type='quantitative' />
+      <column caption='Booking Date' datatype='date' name='[booking_date]' role='dimension' type='ordinal' />
+      <column caption='Booking Id' datatype='string' name='[booking_id]' role='dimension' type='nominal' />
+      <column caption='Booking Platform' datatype='string' name='[booking_platform]' role='dimension' type='nominal' />
+      <column caption='Booking Status' datatype='string' name='[booking_status]' role='dimension' type='nominal' />
+      <column caption='Capacity' datatype='integer' name='[capacity]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Check In Date (Fact Aggregated Bookings.Csv)' datatype='date' name='[check_in_date (fact_aggregated_bookings.csv)]' role='dimension' type='ordinal' />
+      <column caption='Check In Date' datatype='date' name='[check_in_date]' role='dimension' type='ordinal' />
+      <column caption='Checkout Date' datatype='date' name='[checkout_date]' role='dimension' type='ordinal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Day Type' datatype='string' name='[day_type]' role='dimension' type='nominal' />
+      <column caption='Mmm Yy' datatype='string' name='[mmm yy]' role='dimension' type='nominal' />
+      <column caption='No Guests' datatype='integer' name='[no_guests]' role='measure' type='quantitative' />
+      <column caption='Property Id (Dim Hotels.Csv)' datatype='integer' name='[property_id (dim_hotels.csv)]' role='dimension' type='ordinal' />
+      <column caption='Property Id (Fact Aggregated Bookings.Csv)' datatype='integer' name='[property_id (fact_aggregated_bookings.csv)]' role='dimension' type='ordinal' />
+      <column caption='Property Id' datatype='integer' name='[property_id]' role='dimension' type='ordinal' />
+      <column caption='Property Name' datatype='string' name='[property_name]' role='dimension' type='nominal' />
+      <column caption='Ratings Given' datatype='real' name='[ratings_given]' role='measure' type='quantitative' />
+      <column caption='Revenue Generated' datatype='integer' name='[revenue_generated]' role='measure' type='quantitative' />
+      <column caption='Revenue Realized' datatype='integer' name='[revenue_realized]' role='measure' type='quantitative' />
+      <column caption='Room _id(Fact Aggregated Bookings.Csv)' datatype='string' name='[room_category (fact_aggregated_bookings.csv)]' role='dimension' type='nominal' />
+      <column caption='Room_id' datatype='string' name='[room_category]' role='dimension' type='nominal' />
+      <column caption='Room Class' datatype='string' name='[room_class]' role='dimension' type='nominal' />
+      <column caption='Room Id' datatype='string' name='[room_id]' role='dimension' type='nominal' />
+      <column caption='Successful Bookings' datatype='integer' name='[successful_bookings]' role='measure' type='quantitative' />
+      <column caption='Week No' datatype='string' name='[week no]' role='dimension' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/MyPc/AppData/Local/Temp/TableauTemp/#TableauTemp_0p8jsdk1m30aib17gfs9x1ua9i90.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/07/2025 07:57:27 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF' table='[Extract].[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]' type='table' />
+            <relation name='dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4' table='[Extract].[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]' type='table' />
+            <relation name='dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3' table='[Extract].[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]' type='table' />
+            <relation name='dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243' table='[Extract].[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]' type='table' />
+            <_.fcp.ObjectModelSharedDimensions.true...relation name='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D' table='[Extract].[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]' type='table' />
+          </relation>
+          <cols>
+            <map key='[booking_date]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[booking_date]' />
+            <map key='[booking_id]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[booking_id]' />
+            <map key='[booking_platform]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[booking_platform]' />
+            <map key='[booking_status]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[booking_status]' />
+            <map key='[capacity]' value='[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF].[capacity]' />
+            <map key='[category]' value='[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3].[category]' />
+            <map key='[check_in_date (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF].[check_in_date]' />
+            <map key='[check_in_date]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[check_in_date]' />
+            <map key='[checkout_date]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[checkout_date]' />
+            <map key='[city]' value='[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3].[city]' />
+            <map key='[date]' value='[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4].[date]' />
+            <map key='[day_type]' value='[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4].[day_type]' />
+            <map key='[mmm yy]' value='[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4].[mmm yy]' />
+            <map key='[no_guests]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[no_guests]' />
+            <map key='[property_id (dim_hotels.csv)]' value='[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3].[property_id]' />
+            <map key='[property_id (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF].[property_id]' />
+            <map key='[property_id]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[property_id]' />
+            <map key='[property_name]' value='[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3].[property_name]' />
+            <map key='[ratings_given]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[ratings_given]' />
+            <map key='[revenue_generated]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[revenue_generated]' />
+            <map key='[revenue_realized]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[revenue_realized]' />
+            <map key='[room_category (fact_aggregated_bookings.csv)]' value='[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF].[room_category]' />
+            <map key='[room_category]' value='[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D].[room_category]' />
+            <map key='[room_class]' value='[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243].[room_class]' />
+            <map key='[room_id]' value='[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243].[room_id]' />
+            <map key='[successful_bookings]' value='[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF].[successful_bookings]' />
+            <map key='[week no]' value='[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4].[week no]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>property_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[property_id (fact_aggregated_bookings.csv)]</local-name>
+              <parent-name>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</parent-name>
+              <remote-alias>property_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>fact_aggregated_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>check_in_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[check_in_date (fact_aggregated_bookings.csv)]</local-name>
+              <parent-name>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</parent-name>
+              <remote-alias>check_in_date</remote-alias>
+              <ordinal>1</ordinal>
+              <family>fact_aggregated_bookings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>92</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>room_category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[room_category (fact_aggregated_bookings.csv)]</local-name>
+              <parent-name>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</parent-name>
+              <remote-alias>room_category</remote-alias>
+              <ordinal>2</ordinal>
+              <family>fact_aggregated_bookings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>successful_bookings</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[successful_bookings]</local-name>
+              <parent-name>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</parent-name>
+              <remote-alias>successful_bookings</remote-alias>
+              <ordinal>3</ordinal>
+              <family>fact_aggregated_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>44</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>capacity</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[capacity]</local-name>
+              <parent-name>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</parent-name>
+              <remote-alias>capacity</remote-alias>
+              <ordinal>4</ordinal>
+              <family>fact_aggregated_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>38</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>5</ordinal>
+              <family>dim_date.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>92</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>mmm yy</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[mmm yy]</local-name>
+              <parent-name>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</parent-name>
+              <remote-alias>mmm yy</remote-alias>
+              <ordinal>6</ordinal>
+              <family>dim_date.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>week no</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[week no]</local-name>
+              <parent-name>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</parent-name>
+              <remote-alias>week no</remote-alias>
+              <ordinal>7</ordinal>
+              <family>dim_date.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>14</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>day_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[day_type]</local-name>
+              <parent-name>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</parent-name>
+              <remote-alias>day_type</remote-alias>
+              <ordinal>8</ordinal>
+              <family>dim_date.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>property_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[property_id (dim_hotels.csv)]</local-name>
+              <parent-name>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</parent-name>
+              <remote-alias>property_id</remote-alias>
+              <ordinal>9</ordinal>
+              <family>dim_hotels.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>property_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[property_name]</local-name>
+              <parent-name>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</parent-name>
+              <remote-alias>property_name</remote-alias>
+              <ordinal>10</ordinal>
+              <family>dim_hotels.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category]</local-name>
+              <parent-name>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>11</ordinal>
+              <family>dim_hotels.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>city</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[city]</local-name>
+              <parent-name>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</parent-name>
+              <remote-alias>city</remote-alias>
+              <ordinal>12</ordinal>
+              <family>dim_hotels.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>room_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[room_id]</local-name>
+              <parent-name>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</parent-name>
+              <remote-alias>room_id</remote-alias>
+              <ordinal>13</ordinal>
+              <family>dim_rooms.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>room_class</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[room_class]</local-name>
+              <parent-name>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</parent-name>
+              <remote-alias>room_class</remote-alias>
+              <ordinal>14</ordinal>
+              <family>dim_rooms.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]</object-id>
+            </metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>booking_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[booking_id]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>booking_id</remote-alias>
+              <ordinal>15</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>134590</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>property_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[property_id]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>property_id</remote-alias>
+              <ordinal>16</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>booking_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[booking_date]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>booking_date</remote-alias>
+              <ordinal>17</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>164</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>check_in_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[check_in_date]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>check_in_date</remote-alias>
+              <ordinal>18</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>92</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>checkout_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[checkout_date]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>checkout_date</remote-alias>
+              <ordinal>19</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>95</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>no_guests</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[no_guests]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>no_guests</remote-alias>
+              <ordinal>20</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>room_category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[room_category]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>room_category</remote-alias>
+              <ordinal>21</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>booking_platform</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[booking_platform]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>booking_platform</remote-alias>
+              <ordinal>22</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>ratings_given</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ratings_given]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>ratings_given</remote-alias>
+              <ordinal>23</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>booking_status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[booking_status]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>booking_status</remote-alias>
+              <ordinal>24</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>revenue_generated</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[revenue_generated]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>revenue_generated</remote-alias>
+              <ordinal>25</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>94</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+            <_.fcp.ObjectModelSharedDimensions.true...metadata-record class='column'>
+              <remote-name>revenue_realized</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[revenue_realized]</local-name>
+              <parent-name>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</parent-name>
+              <remote-alias>revenue_realized</remote-alias>
+              <ordinal>26</ordinal>
+              <family>fact_bookings.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>291</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]</object-id>
+            </_.fcp.ObjectModelSharedDimensions.true...metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='dim_date.csv' id='dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4'>
+            <properties context=''>
+              <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_date.csv' table='[dim_date#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='date' name='date' ordinal='0' />
+                  <column datatype='string' name='mmm yy' ordinal='1' />
+                  <column datatype='string' name='week no' ordinal='2' />
+                  <column datatype='string' name='day_type' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4' table='[Extract].[dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4]' type='table' />
+            </properties>
+          </object>
+          <object caption='dim_hotels.csv' id='dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3'>
+            <properties context=''>
+              <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_hotels.csv' table='[dim_hotels#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='integer' name='property_id' ordinal='0' />
+                  <column datatype='string' name='property_name' ordinal='1' />
+                  <column datatype='string' name='category' ordinal='2' />
+                  <column datatype='string' name='city' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3' table='[Extract].[dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3]' type='table' />
+            </properties>
+          </object>
+          <object caption='dim_rooms.csv' id='dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243'>
+            <properties context=''>
+              <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='dim_rooms.csv' table='[dim_rooms#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='room_id' ordinal='0' />
+                  <column datatype='string' name='room_class' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243' table='[Extract].[dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243]' type='table' />
+            </properties>
+          </object>
+          <object caption='fact_aggregated_bookings.csv' id='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF'>
+            <properties context=''>
+              <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='fact_aggregated_bookings.csv' table='[fact_aggregated_bookings#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='integer' name='property_id' ordinal='0' />
+                  <column datatype='date' name='check_in_date' ordinal='1' />
+                  <column datatype='string' name='room_category' ordinal='2' />
+                  <column datatype='integer' name='successful_bookings' ordinal='3' />
+                  <column datatype='integer' name='capacity' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF' table='[Extract].[fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF]' type='table' />
+            </properties>
+          </object>
+          <_.fcp.ObjectModelSharedDimensions.true...object caption='fact_bookings.csv' id='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D'>
+            <properties context=''>
+              <relation connection='textscan.1e4ye2t0lb6xdf1bnzcj70pc4oli' name='fact_bookings.csv' table='[fact_bookings#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='booking_id' ordinal='0' />
+                  <column datatype='integer' name='property_id' ordinal='1' />
+                  <column datatype='date' name='booking_date' ordinal='2' />
+                  <column datatype='date' name='check_in_date' ordinal='3' />
+                  <column datatype='date' name='checkout_date' ordinal='4' />
+                  <column datatype='integer' name='no_guests' ordinal='5' />
+                  <column datatype='string' name='room_category' ordinal='6' />
+                  <column datatype='string' name='booking_platform' ordinal='7' />
+                  <column datatype='real' name='ratings_given' ordinal='8' />
+                  <column datatype='string' name='booking_status' ordinal='9' />
+                  <column datatype='integer' name='revenue_generated' ordinal='10' />
+                  <column datatype='integer' name='revenue_realized' ordinal='11' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D' table='[Extract].[fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D]' type='table' />
+            </properties>
+          </_.fcp.ObjectModelSharedDimensions.true...object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[check_in_date (fact_aggregated_bookings.csv)]' />
+              <expression op='[date]' />
+            </expression>
+            <first-end-point object-id='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF' />
+            <second-end-point object-id='dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4' />
+          </relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[check_in_date]' />
+              <expression op='[date]' />
+            </expression>
+            <first-end-point object-id='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D' />
+            <second-end-point object-id='dim_date.csv_7EC81C2C286947BF9C755493B5A37EC4' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[property_id (fact_aggregated_bookings.csv)]' />
+              <expression op='[property_id (dim_hotels.csv)]' />
+            </expression>
+            <first-end-point object-id='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF' />
+            <second-end-point object-id='dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3' />
+          </relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[property_id]' />
+              <expression op='[property_id (dim_hotels.csv)]' />
+            </expression>
+            <first-end-point object-id='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D' />
+            <second-end-point object-id='dim_hotels.csv_926396FAFE7C41D7AB093DA4000906D3' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[room_category (fact_aggregated_bookings.csv)]' />
+              <expression op='[room_id]' />
+            </expression>
+            <first-end-point object-id='fact_aggregated_bookings.csv_2572EE589F8E4767B76D792FFC0417BF' />
+            <second-end-point object-id='dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243' />
+          </relationship>
+          <_.fcp.ObjectModelSharedDimensions.true...relationship>
+            <expression op='='>
+              <expression op='[room_category]' />
+              <expression op='[room_id]' />
+            </expression>
+            <first-end-point object-id='fact_bookings.csv_523A45EE4C2F4F8AAEF2E166D8F8D94D' />
+            <second-end-point object-id='dim_rooms.csv_E83B11124CCE4E5BA0821671A3153243' />
+          </_.fcp.ObjectModelSharedDimensions.true...relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{33AC9C20-2408-4E08-9C40-54E420BB5DAB}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{075349DF-CBBA-470A-BEC3-34FCEA36C641}' />
+    </window>
+  </windows>
+</workbook>
